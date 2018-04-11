@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中软科技</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/first.css">
+    <!--[if lte IE 9]>
+    <script src="./lib/bootstrap/js/respond.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- 边栏 -->
+    <div class="lt_aside">
+        <div class="header">
+            <h2>
+                <a href="./index.html">中软科技</a>
+            </h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <a href="user.html">
+                        <span class='glyphicon glyphicon-user'></span>活动监控</a>
+                </li>
+                <li class='active'>
+                    <a href="javascript:void(0);">
+                        <span class='glyphicon glyphicon-list'></span>一级导航</a>
+                    <ol>
+                        <li>
+                            <a style='color:white' href="first.html">服务配置</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="panel.html">
+                        <span class='glyphicon glyphicon-tags'></span>名单上传</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体区域 -->
+    <div class="lt_main">
+        <div class="header">
+            <a class='glyphicon glyphicon-align-justify pull-left' href="javascript:void(0)"></a>
+            <a class='glyphicon glyphicon-log-out pull-right' href="javascript:void(0)"></a>
+        </div>
+        <div class="content ">
+            <!-- 導航 -->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li>
+                    一级导航
+                </li>
+                <li>
+                    服务配置
+                </li>
+            </ol>
+            <div class="name">
+                <!-- 按钮 modal -->
+                <div class="shangchuang">
+                    <button class="btn btn-primary mb_30" data-toggle="modal" id="newly-increased" data-target=".modal-newly">
+                        <span class="glyphicon glyphicon-plus"></span>新增</button>
+                    <button class="btn mb_30 delete-all" data-toggle="modal" data-target=".Batch-delete">
+                        <span class="glyphicon glyphicon-trash"></span>批量删除</button>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="serve_s">
+                                </th>
+                                <th>服务ID</th>
+                                <th>服务名</th>
+                                <th>服务简介</th>
+                                <th>创建时间</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="serve_d">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 分页的ul -->
+            <ul id="pagintor"></ul>
+
+        </div>
+        <div class="footer">
+            <div class="footer-c">
+                <span>
+                    <a href="javascript:void(0);">帮助</a>
+                </span>
+                <span>
+                    <a href="javascript:void(0);">隐私</a>
+                </span>
+                <span>
+                    <a href="javascript:void(0);">条款</a>
+                </span>
+                <p>copyright @2018中科软科技股份有限公司出品</p>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框  登出-->
+    <div class="modal fade modal-sure" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class='text-danger'>
+                        <span class='glyphicon glyphicon-info-sign
+                        '></span> 你想清楚了?真的要走??</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- 编辑modal -->
+    <div class="modal fade modal-add" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">编辑服务配置</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- 表单 -->
+                    <form class="form-horizontal" id="submit-s">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">服务ID:</label>
+                            <div class="col-sm-6 select">
+                                <input type="text" class="form-control" disabled id="serveID">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">服务名:</label>
+                            <div class="col-sm-6 select">
+                                <input type="text" class="form-control" disabled id="serveName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">服务简介:</label>
+                            <div class="col-sm-6 select">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="remark" placeholder="请输入内容">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary send">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 单一删除模态框 -->
+    <div class="modal fade modal-deleted" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class='text-danger'>
+                        <span class='glyphicon glyphicon-info-sign
+                    '></span>你真的要删除吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" id="delete-d">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 批量删除模态框 -->
+    <div class="modal fade Batch-delete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class='text-danger'>
+                        <span class='glyphicon glyphicon-info-sign
+                '></span>你想清楚了，确定删除以下内容？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-danger deleteBatches">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增模态框 -->
+    <div class="modal fade modal-newly" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">新增服务配置</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- 表单 -->
+                    <form class="form-horizontal" id="newly">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">服务ID:</label>
+                            <div class="col-sm-6 select" onchange="onchange-id">
+                                <input type="hidden" id="hiddens">
+                                <select class="form-control" name="serviceId" id="ulID">
+                                    <option>请选择</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">服务名:</label>
+                            <div class="col-sm-6 select">
+                                <input type="text" class="form-control" name="serviceName" disabled id="serviceName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">服务简介:</label>
+                            <div class="col-sm-6 select">
+                                <input type="text" class="form-control" id="tempRemark" name="remark" placeholder="请输入内容">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary" form="newly" id="insert">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script id='first' type="text/html">
+    {{each records}}
+    <tr>
+        <td class="check">
+            <input type="checkbox" name="check{{$value.status}}">
+        </td>
+        <td>{{$value.serviceId}}</td>
+        <td>{{$value.serviceName}}</td>
+        <td class="introduct" data-remark="{{$value.remark}}">
+            <p class="text">
+                {{$value.remark}}
+            </p>
+        </td>
+        <td>{{$value.createTime}}
+        </td>
+        <td>
+            {{if $value.status==2}} 已禁用 {{else}} 已启用 {{/if}}
+        </td>
+        <td data-id="{{$value.id}}">
+            <button data-toggle="modal" data-target=".modal-add" id="compile">编辑</button>
+            <button data-toggle="modal" data-status="{{$value.status}}" class="delete-s" id="check{{$value.status}}"   data-target=".modal-deleted">删除</button>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+</html>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/artTemplate/template.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/first.js"></script>

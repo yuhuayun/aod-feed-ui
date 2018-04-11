@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中软科技</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <!--[if lte IE 9]>
+    <script src="./lib/bootstrap/js/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- 边栏 -->
+    <div class="lt_aside">
+        <div class="header">
+            <h2>
+                <a href="./index.html">中软科技</a>
+            </h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li class='active'>
+                    <a href="user.html">
+                        <span class='glyphicon glyphicon-user'></span>活动监控</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class='glyphicon glyphicon-list'></span>一级导航</a>
+                    <ol>
+                        <li>
+                            <a href="first.html">服务配置</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="panel.html">
+                        <span class='glyphicon glyphicon-tags'></span>名单上传</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体区域 -->
+    <div class="lt_main">
+        <div class="header">
+            <a class='glyphicon glyphicon-align-justify pull-left' href="javascript:void(0)"></a>
+            <a class='glyphicon glyphicon-log-out pull-right' href="javascript:void(0)"></a>
+        </div>
+        <div class="content ">
+            <!-- 導航 -->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li>
+                    活动监控
+                </li>
+            </ol>
+            <button class="btn btn-primary mb_30" id="newly-increased">
+                <span class="glyphicon glyphicon-plus" id="newly-increased"></span>刷新</button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>服务器ID</th>
+                        <th>服务名</th>
+                        <th>名单总数</th>
+                        <th>已导入平台数</th>
+                        <th>已拨打数</th>
+                        <th>已接通数</th>
+                        <th>接通率</th>
+                        <th>上传时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <ul id='pagintor'></ul>
+        </div>
+        <div class="footer">
+            <div class="footer-c">
+                <span>
+                    <a href="javascript:void(0);">帮助</a>
+                </span>
+                <span>
+                    <a href="javascript:void(0);">隐私</a>
+                </span>
+                <span>
+                    <a href="javascript:void(0);">条款</a>
+                </span>
+                <p>copyright @2018中科软科技股份有限公司出品</p>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框 -->
+    <div class="modal fade modal-sure" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class='text-danger'>
+                        <span class='glyphicon glyphicon-info-sign
+                        '></span> 你想清楚了?真的要走??</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="./lib/artTemplate/template.js"></script>
+<script type='text/html' id='user'>
+    {{each records}}
+    <tr>
+        <td>{{$value.serviceId }}</td>
+        <td>{{$value.serviceName}}</td>
+        <td>{{$value.listSum }}</td>
+        <td>{{$value.imPlatformNum}}</td>
+        <td>{{$value.dialNum}}</td>
+        <td>{{$value.successNum}}</td>
+        <td>{{$value.connectRate}}</td>
+        <td>{{$value.time}}</td>
+        <td data-id="{{$value.id}}">
+            {{if $value.status==2}}
+            <button>已禁用</button>
+            {{else}}
+            <button>已启用</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
+<script src="./js/common.js"></script>
+<script src="./js/user.js"></script>

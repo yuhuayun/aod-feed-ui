@@ -1,0 +1,30 @@
+/* 服务简介 */
+
+.table-hover {
+    table-layout: fixed;
+}
+
+.table-hover td,
+th {
+    text-align: center;
+}
+.table-hover tbody td {
+    position: relative;
+
+}
+/* #serve_d td.introduct {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 70px;
+} */
+
+#serve_d td.introduct .text {
+    width: 100%;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中软科技</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <!--[if lte IE 9]>
+    <script src="./lib/bootstrap/js/respond.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <!-- 边栏 -->
+    <div class="lt_aside">
+        <div class="header">
+            <h2>
+                <a href="./index.html">中软科技</a>
+            </h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <a href="user.html">
+                        <span class='glyphicon glyphicon-user'></span>活动监控</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class='glyphicon glyphicon-list'></span>一级导航</a>
+                    <ol>
+                        <li>
+                            <a href="first.html">服务配置</a>
+                        </li>
+                    </ol>
+                </li>
+                <li class='active'>
+                    <a href="panel.html">
+                        <span class='glyphicon glyphicon-tags'></span>名单上传</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体区域 -->
+    <div class="lt_main">
+        <div class="header">
+            <a class='glyphicon glyphicon-align-justify pull-left' href="javascript:void(0)"></a>
+            <a class='glyphicon glyphicon-log-out pull-right' href="javascript:void(0)"></a>
+        </div>
+        <div class="content ">
+            <!-- 導航 -->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li>
+                    成功页面
+                </li>
+
+            </ol>
+            <div class="name">
+                <!-- 按钮 modal -->
+                <div class="shangchuang">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>任务ID</th>
+                                <th>客户ID</th>
+                                <th>电话一</th>
+                                <th>电话二</th>
+                                <th>电话三</th>
+                                <th>电话四</th>
+                                <th>电话五</th>
+                                <th>电话六</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 分页的ul -->
+            <ul id="pagintor"></ul>
+        </div>
+        <div class="footer">
+            <div class="footer-c">
+                <span>
+                    <a href="javascript:void(0);">帮助</a>
+                </span>
+                <span>
+                    <a href="javascript:void(0);">隐私</a>
+                </span>
+                <span>
+                    <a href="javascript:void(0);">条款</a>
+                </span>
+                <p>copyright @2018中科软科技股份有限公司出品</p>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框  登出-->
+    <div class="modal fade modal-sure" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class='text-danger'>
+                        <span class='glyphicon glyphicon-info-sign
+                        '></span> 你想清楚了?真的要走??</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</body>
+<script id='scuess' type="text/html">
+    {{each records}}
+    <tr>
+            <td>{{$value.id}}</td>
+            <td>{{$value.custId}}</td>
+            <td>{{$value.phone1}}</td>
+            <td>{{$value.phone2}}</td>
+            <td>{{$value.phone3}}</td>
+            <td>{{$value.phone4}}</td>
+            <td>{{$value.phone5}}</td>
+            <td>{{$value.phone6}}</td>
+        </tr>
+    {{/each}}
+</script>
+</html>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/artTemplate/template.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/success.js"></script>
