@@ -1,5 +1,5 @@
 #!/bin/bash
-${BUILD_NUMBER}
+echo ${BUILD_NUMBER}
 docker build -t 192.168.1.201:5000/aod-feed-ui:v${BUILD_NUMBER} .
 #docker push 192.168.1.201:5000/aod-feed-ui:v${BUILD_NUMBER}
 #cd src
