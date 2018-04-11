@@ -1,7 +1,7 @@
 version: '2'
 services:
   aod-feed-ui:
-    image: 192.168.1.201:5000/aod-feed-ui:v${BUILD_NUMBER}.0
+    image: 192.168.1.201:5000/aod-feed-ui:v$$BUILD_NUMBER$$.0
     stdin_open: true
     volumes:
     - /usr/share/nginx/html:/usr/share/nginx/html
